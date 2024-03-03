@@ -1,0 +1,40 @@
+---
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+const { title, style } = Astro.props;
+---
+<!-- 
+	######
+
+	Thanks for checking out the code!
+	Enjoy the ride, there'll be more things updated soonTM
+	All the best, Koo.	
+
+	######
+ -->
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="description" content="Professional Personal Profile for finding Internships August 2024.">
+		<meta name="keywords" content="HTML, CSS, JavaScript, Astro, Internship, KEA, MMD 2024, ">
+		<meta name="author" content="Andreas Ekvall-Hofvander, KEA MMD student 2024">
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="stylesheet" href={style}>
+		<title>{title}</title>
+	</head>
+	<body>
+		<Header/>
+		<main>
+            <slot/>
+		</main>
+		<Footer/>
+	</body>
+</html>
+
+<style>
+body {
+	display: grid;
+}
+</style>
