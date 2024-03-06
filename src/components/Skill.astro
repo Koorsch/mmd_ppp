@@ -1,0 +1,48 @@
+---
+const { skillHeader, skillImg, skillLink = "#" } = Astro.props;
+---
+
+<section class="skillCard">
+    <div class="skillHead">
+        <a target="_blank" href=`http://${skillLink}`>
+        <svg>
+            <use href=`/svg/icons.svg#${skillImg}` width="40" height="40" />
+          </svg>
+        </a>
+        <h2>{skillHeader}</h2>
+    </div>
+    <div class="skillContent"> 
+        <slot />
+    </div>
+</section>
+
+<style>
+.skillCard {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0.75rem;
+    align-self: start;
+
+        & .skillHead {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.75rem;
+            &:hover {
+                color: var(--col-dark2);
+            }
+            & svg {
+                max-width: 3rem;
+                max-height: 3rem;
+                &:hover {
+                    color: var(--col-light1);
+                }
+            }
+        }
+        & .skillContent {
+            display: grid;
+            grid-template-columns: 1fr
+            grid-template-rows: ;
+            line-height: 1.6;
+        }
+}
+</style>

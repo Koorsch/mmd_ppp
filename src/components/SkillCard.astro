@@ -1,47 +1,76 @@
 ---
-const { headerText, imgSrc, figCapt} = Astro.props;
+import Skill from '../components/Skill.astro'
 ---
 
-<section>
-    <h2>{headerText}</h2>
-    <div class="skillText"><slot/></div>
-    <figure>
-        <img src={imgSrc} alt="">
-        <figcaption>{figCapt}</figcaption>
-    </figure>
-</section>
+<article class="skills">
+    <Skill skillHeader="Html" skillImg="html" skillText="">
+        <p>Always working on those semantics! </p>
+    </Skill>
+    <Skill skillHeader="Css" skillImg="css" skillText="">
+        <p>Deepdiving into CSS through <strong>"Design for Developers"</strong> which you can check out at my <a target="_blank" href="https://github.com/Koorsch/dfd-opgaver"><strong>GitHub repository.</strong></a></p>
+    </Skill>
+    <Skill skillHeader="Javascript" skillImg="javascript" skillText="">
+        <p>Able to set up some basic Javascript for interactivity and other functions.</p>
+        <p>Will be introduced to <strong>React</strong> later during the semester.</p>
+    </Skill>
+    <Skill skillHeader="Astro" skillImg="astro" skillText="">
+        <p>This was made with Astro! Currently delving deeper and broadening my knowledge of this nifty web-dev framework.</p>
+    </Skill>
+    <Skill skillHeader="Database" skillImg="database" skillText="">
+        <p>Some basic knowledge of setting up postGres (through Supabase) databases and populating it with data then using <strong>fetch()</strong> with Javascript.</p>
+        <div>
+            <svg>
+                <use href="/svg/icons.svg#supabase" width="40" height="40" />
+            </svg>
+        </div>
+    </Skill>
+    <Skill skillHeader="Github" skillImg="github" skillText="" skillLink="github.com/koorsch">
+        <p>Basic skills setting up repositories and other small things, but hoping to expand on this subject!</p>
+    </Skill>
+    <Skill skillHeader="Figma" skillImg="figma" skillText="">
+        <p>Experience setting up some smaller Visual Identity pages, components and general usage.</p>
+    </Skill>
+    <Skill skillHeader="Adobe" skillImg="adobe" skillText="">
+        <p>The Adobe Creative Suite, including but not limited to:</p>
+        <div>
+            <svg>
+                <use href="/svg/icons.svg#adobe_ai" width="40" height="40" />
+            </svg>
+            <svg>
+                <use href="/svg/icons.svg#adobe_pr" width="40" height="40" />
+            </svg>
+            <svg>
+                <use href="/svg/icons.svg#adobe_ps" width="40" height="40" />
+            </svg>
+            <svg>
+                <use href="/svg/icons.svg#adobe_xd" width="40" height="40" />
+            </svg>
+        </div>
+        <p>During the course of the education we've also checked out InDesign & AfterEffects.</p>
+    </Skill>
+</article>
 
 <style>
-    section {
-        display: grid;
-        max-width: 600px;
-        gap: 1rem;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: min-content 1fr;
-        grid-template-areas: "skillHeaderText skillImage" "skillText skillText";
+article {
+    grid-column: free-real-estate-start / full-end;
+    display: grid;
+    justify-content: space-evenly;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    gap: 1rem;
+    & > * + svg {
+        display: flex;
     }
-    h2 {
-        grid-area: skillHeaderText;
-        padding: 0.25rem;
-    }
-    .skillText {
-        background-color: green;
-        padding: 1rem;
-        grid-area: skillText;
-    }
-    figure {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        grid-area: skillImage;
-    }
-    @media (min-width: 720px) {
-        section {
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            grid-template-areas: 'skillHeaderText skillHeaderText skillImage skillImage'
-                     'skillText skillText skillImage skillImage'
-                     'skillText skillText skillText skillText';
+    & svg:hover {
+          color: var(--col-dark2);
+          scale: 1.05;
         }
-    }
+
+        & svg {
+            color: var(--col-dark1);
+            width: 50px;
+            height: 50px;
+            padding: 0.25rem;
+        }
+}
 </style>

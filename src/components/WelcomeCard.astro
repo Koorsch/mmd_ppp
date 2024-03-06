@@ -1,0 +1,107 @@
+---
+const { imgSrc, imgAlt, figCaption, title} = Astro.props;
+import Socials from '../components/Socials.astro';
+---
+
+<article>
+    <section id="left">
+        <h1>{title}</h1>
+        <h3>5 quick facts about me (Andreas)</h3>
+        <ul id="info">
+            <li>35 y/o Swede living in Denmark</li>
+            <li>Previously worked as a Chef for 12~ years</li>
+            <li>Coffee over tea, preferrably</li>
+            <li>Coffee over tea</li>
+            <li>Easily and eagerly picks up new techskills</li>
+        </ul>
+       </section>
+    <section id="right">
+        <picture>
+            <img src={imgSrc} alt={imgAlt}>
+            <figcaption>{figCaption}</figcaption>
+        </picture>
+        <Socials/>
+    </section>
+</article>
+
+<style>
+    article {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column: free-real-estate-start / full-end;
+        gap: 1.5rem;
+        justify-content: center;
+        align-items: flex-start;
+        line-height: 1.25rlh;
+        
+        @media (min-width: 48rem) {
+            & {
+                grid-template-columns: minmax(25rem, 30rem) minmax(20rem, 25rem);; 
+                align-items: start;
+            }
+        }
+    }
+    section {
+        display: grid;
+        place-content: center;
+        & picture {
+            display: grid;
+            grid-template-columns: 1fr;
+            @media (min-width: 48rem) {
+                & {
+                    grid-template-columns: minmax(min-content, max-content);
+                }
+            }
+            & img {
+                width: 100%;
+                border-radius: 1rem;
+                height: auto;
+                object-fit: cover;
+                align-self: stretch;
+                box-shadow: 3px 3px 3px 3px gray;
+            }
+
+        }
+    }
+    #left {
+       display: grid;
+       padding: 1rem;
+       grid-template-columns: 1fr;
+       justify-content: center;
+   }
+    #right{
+       display: grid;
+       grid-template-columns: 1fr auto;
+       gap: 1rem;
+       align-items: center;
+       order: -1;
+       @media (min-width: 48rem) {
+           grid-template-columns: 1fr;
+           justify-items: center;
+           order: 1;
+       }
+   }
+   #info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    & li {
+        font-weight: 600;
+        border-radius: 1rem;
+        margin: 1rem;
+        background-color: var(--col-light1);
+        
+    box-shadow: 3px 3px 3px 3px gray;
+        list-style: none;
+        padding: 1rem;
+        flex-basis: 180px;
+        flex: 1 0;
+    }
+    & em {
+        justify-content: center;
+        font-weight: 300;
+        font-size: small;
+    }
+}
+</style>

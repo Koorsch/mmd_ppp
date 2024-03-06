@@ -1,18 +1,21 @@
 ---
-const { altText, imgSrc, headerText, variant } = Astro.props;
 ---
 
-<section>
-    <article>
-        <h2>{headerText}</h2>
-        <slot/>
-    </article>
-    <figure>
-        <img src={imgSrc} alt={altText}>
-        <figcaption></figcaption>
-    </figure>
+<section class="basicCard">
+    <slot />
 </section>
 
 <style>
+.basicCard {
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content repeat(auto-fill, minmax(0, min-content));
 
+    & * + *{
+        background-color: hotpink;
+        line-height: 1.6;
+        padding-top: 1rem;
+    }
+}
 </style>

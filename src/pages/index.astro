@@ -1,12 +1,22 @@
 ---
 import BasicLayout from '../layouts/BasicLayout.astro'; 
+import WelcomeCard from '../components/WelcomeCard.astro';
 import BasicCard from '../components/BasicCard.astro';
+import Footer from '../components/Footer.astro';
+import SkillCard from '../components/SkillCard.astro'
 ---
 
-<BasicLayout title="Andreas' Personal Professional Profile (MMD2024)" style="src/styles/BasicStyle.css">
-    <BasicCard headerText="Info coming soon!" imgSrc="./media/banana.png" altText="A banana, for whatever reason.">
-        <p>Something something, enjoy a banana</p>
+<BasicLayout title='Andreas Personal "Professional" Profile (MMD2024)' style="src/styles/BasicStyle.css">
+    <WelcomeCard imgSrc="/media/me1.webp" imgAlt="It's a me! Andreas, budding webdev and techenthusiast." figCaption="" title="Welcome!">
+
+    </WelcomeCard>
+    <BasicCard>
+        <strong>Who am I? And what is this?</strong>
     </BasicCard>
+    <SkillCard />
+    <Footer>
+
+    </Footer>
 </BasicLayout>
 
 <style>
