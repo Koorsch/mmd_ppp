@@ -9,7 +9,9 @@
 .basicCard {
     display: grid;
     padding: 1rem;
+    grid-column: free-real-estate-start / full-end;
     grid-template-columns: 1fr;
+    gap:1rem;
     grid-template-rows: min-content repeat(auto-fill, minmax(0, min-content));
 
     & * + *{
